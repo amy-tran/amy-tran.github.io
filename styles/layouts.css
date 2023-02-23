@@ -1,0 +1,6 @@
+.exercise .row div {
+    border-width: 0px 1px;
+    border-color: gray;
+    border-style: solid;
+    height: 400px;
+  }
