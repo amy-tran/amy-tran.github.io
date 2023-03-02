@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hello, world!</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="stylesheet" type="text/css" href="styles/carousel.css" />
+  <link rel="icon" href="favicon.png">
+</head>
+<body>
+  <h1>Hello, world!</h1>
+  <!-- slider container -->
+  <div class="slider">
+
+    <!-- slide 1 -->
+    <div class="slide">
+      <img
+        src="https://source.unsplash.com/random?landscape,mountain"
+        alt=""
+      />
+    </div>
+
+     <!-- slide 2 -->
+    <div class="slide">
+      <img src="https://source.unsplash.com/random?landscape,cars" alt="" />
+    </div>
+
+     <!-- slide 3 -->
+    <div class="slide">
+      <img src="https://source.unsplash.com/random?landscape,night" alt="" />
+    </div>
+
+     <!-- slide 4 -->
+    <div class="slide">
+      <img src="https://source.unsplash.com/random?landscape,city" alt="" />
+    </div>
+
+     <!-- Control buttons -->
+    <button class="btn btn-next">></button>
+    <button class="btn btn-prev">
+  </div>
+  <script>
+    // Select all slides
+    const slides = document.querySelectorAll(".slide");
+    
+    // loop through slides and set each slides translateX property to index * 100% 
+    slides.forEach((slide, indx) => {
+      slide.style.transform = `translateX(${indx * 100}%)`;
+    });
+
+    // select next slide button
+    const nextSlide = document.querySelector(".btn-next");
+
+    // current slide counter
+    let curSlide = 0;
+    // maximum number of slides
+    let maxSlide = slides.length - 1;
+
+    // add event listener and navigation functionality
+    nextSlide.addEventListener("click", function () {
+    // check if current slide is the last and reset current slide
+    if (curSlide === maxSlide) {
+        curSlide = 0;
+    } else {
+        curSlide++;
+    }
+
+    //   move slide by -100%
+    slides.forEach((slide, indx) => {
+        slide.style.transform = `translateX(${100 * (indx - curSlide)}%)`;
+    });
+    });
+    </script>
+</body>
+</html>
